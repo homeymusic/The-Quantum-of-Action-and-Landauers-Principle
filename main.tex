@@ -29,7 +29,7 @@
 
 \begin{document}
 
-\title{The Quantum of Action and Landauer's Principle}
+\title{Squeezing the Quantum of Action Determines Information Capacity}
 
 \begin{abstract}
 Quantum microstates are operationally indistinguishable inside the quantum of action. Among these infinite possible microstates, the one realized requires the least action to kinematically partition and thermodynamically erase. Least action granulates the continuum. It resolves the coarse-grained configurations of quantum mechanics at low action into the fine-grained configurations of classical mechanics at high action.
@@ -138,7 +138,7 @@ Substituting the squeezed boundaries, the area of this inscribed ellipse is $a =
 \delta q \delta p = \frac{\hbar^2}{\Delta q \Delta p}.
 \end{equation}
 
-This inverse area scaling geometrically recovers the continuous-variable squeezed states established in quantum optics \cite{Glauber1963, Sudarshan1963, Caves1981}. While the traditional uncertainty principle $\sigma_q \sigma_p \ge \hbar/2$ demands the macroscopic quantum states underlying Schr{\"{o}}dinger's cat paradox \cite{Schrodinger1980Trimmer}, this squeezed uncertainty principle precludes those states and the cat paradox: as classical boundaries expand, they compress the conjugate blobs into fine crosshairs, enforcing the correspondence principle (see the bottom panel of Fig.~\ref{fig:harmonic_oscillator}).
+This inverse area scaling geometrically recovers the continuous-variable squeezed states established in quantum optics \cite{Glauber1963, Sudarshan1963, Caves1981}. While the traditional uncertainty principle $\sigma_q \sigma_p \ge \hbar/2$ demands the macroscopic quantum states underlying Schr{\"{o}}dinger's cat paradox \cite{Schrodinger1980Trimmer}, this squeezed uncertainty principle precludes those states and the cat paradox: as classical boundaries expand, they compress the conjugate blobs into fine crosshairs, enforcing the correspondence principle (see the bottom panel of Fig.~\ref{fig:partition_grid}).
 
 \section{Landauer's Principle}
 
@@ -284,11 +284,11 @@ For any phase-space coordinate, $x \in \{q, p\}$, a partitioning function select
 
 Following Bennett's protocol \cite{Bennett1973}, we invert and reverse the binary partition sequence $s_x$ to form the uncomputation path $(\bar{s}_x)^R$, where both paths have bit count $N_x = |s_x| = |(\bar{s}_x)^R|$.
 
-Physical erasure of this sequence uncomputes the microstate back to the ground state ($x_0$). This process expends Landauer action ($\Delta A_L = N_x E_L \tau$) to the environment, yielding the phase-space displacement $\epsilon_x$:
+Physical erasure of this sequence uncomputes the microstate back to the ground state ($x_0$). This process expends Landauer action ($\Delta A_L = N_x E_L \tau$) to the environment:
 
 \begin{equation}
 \label{eq:ErasureFunction}
-\epsilon_x = \operatorname{ERASE}(s_x, x_\Upsilon, x_b), \quad \text{expends} \quad \Delta A_L = N_x E_L \tau
+\operatorname{ERASE}(s_x, x_\Upsilon, x_b), \quad \text{expends} \quad \Delta A_L = N_x E_L \tau
 \end{equation}
 
 The vector $\mathbf{\epsilon} = (\epsilon_q,\epsilon_p)$ is the distance from the least-action state $(q_\Upsilon, p_\Upsilon)$ to the blob center $(q_b, p_b)$. The observed classical coordinates $(q,p)$ are these displacements scaled by the geometric capacity $\frac{A}{\pi \hbar}$:
@@ -298,35 +298,11 @@ The vector $\mathbf{\epsilon} = (\epsilon_q,\epsilon_p)$ is the distance from th
 (q,p) = \frac{A}{\pi \hbar} (\epsilon_q,\epsilon_p)
 \end{equation}
 
-\section{Time Evolution and Decoherence}
-
-The physical erasure of the selected microstate unfolds over time. As the system clears these coordinate bits, the microstate steps closer to the ground state $A_0$. Because the classical coordinates scale directly with these squeezed offsets, they track this stepwise erasure process:
-
-\begin{equation}
-\label{eq:TimeEvolutionCoordinates}
-q(t) = \frac{A}{\pi \hbar} \epsilon_q(t) \quad \text{and} \quad p(t) = \frac{A}{\pi \hbar} \epsilon_p(t)
-\end{equation}
-
-When the bits are fully erased ($\epsilon_q = \epsilon_p = 0$), the coordinates rest at the groud state $(q_0, p_0)$. We observe this mechanical loss of information as quantum decoherence.
-
-Because physical action is the product of energy and time, we can determine the decoherence time ($\tau_D$) by dividing the total geometric action by the total Landauer energy cost required to erase the $N$ partitions:
-
-\begin{equation}
-\label{eq:DecoherenceTime}
-\tau_D = \frac{A}{(N_q + N_p) k_B T \ln 2}
-\end{equation}
-
-This denominator sets the physical clock. A system maintains its quantum behavior if it remains small ($N \to 2$) and cold ($T \to 0$). If the state requires a large bit budget ($N \gg 1$) or operates at a high temperature ($T \gg 0$), the denominator grows rapidly. The erasure time drops to zero, and the system becomes entirely classical.
-
-\section{Finite or Infinite Support}
-
-Standard phase-space representations utilize infinite Gaussian tails, whereas our Landauer erasure density relies on strict operational boundaries. Because thermodynamic erasure costs are overwhelmingly dominated by the localized core volume, this distinction is physically moot. Furthermore, compact support cleanly eliminates the conceptual artifact of assigning non-zero probabilities at classical distances.
-
 \section{Methods}
 
 \subsection{Dimensional Scaling and Phase-Space Geometry}
 
-To computationally simulate the irreversible erasure of microstates, we map the physical dimensions of phase space to a normalized, dimensionless coordinate system. We establish characteristic reference scales $q_0$ and $p_0$ such that their phase-space area defines the quantum blob in the ground state, $A_0 = \pi q_0 p_0 = h/2$.
+To computationally simulate the kinematic partitioning, we map the physical dimensions of phase space to a normalized, dimensionless coordinate system. We establish characteristic reference scales $q_0$ and $p_0$ such that their phase-space area defines the quantum blob in the ground state, $A_0 = \pi q_0 p_0 = h/2$.
 
 Any physical boundary or coordinate can therefore be expressed as a dimensionless ratio, denoted by the $\widetilde{\text{tilde}}$, scaled by its characteristic unit: $\Delta q = \widetilde{\Delta q} q_0$, $\Delta p = \widetilde{\Delta p} p_0$, $\delta q = \widetilde{\delta q} q_0$, and $\delta p = \widetilde{\delta p} p_0$.
 
